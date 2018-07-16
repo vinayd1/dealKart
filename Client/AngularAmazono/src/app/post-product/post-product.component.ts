@@ -34,6 +34,7 @@ export class PostProductComponent implements OnInit {
       const data = await this.rest.get(
         'http://localhost:3030/api/categories'
       );
+      console.log(data);
       data['success']
         ? (this.categories = data['categories'])
         : this.data.error(data['message']);
@@ -93,7 +94,9 @@ export class PostProductComponent implements OnInit {
           form
         );
         data['success']
-          ? this.data.success(data['message'])
+          ? this.router.navigate(['/profile/myproducts'])
+            .then(() => this.data.success(data['message']))
+            .catch(error => this.data.error(error))
           : this.data.error(data['message']);
       }
     } catch (error) {

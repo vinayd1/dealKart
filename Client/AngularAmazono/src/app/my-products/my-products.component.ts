@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';  
+
+import { RestApiService } from '../rest-api.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-my-products',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyProductsComponent implements OnInit {
 
-  constructor() { }
+  products: any;
 
-  ngOnInit() {
+  constructor(private data: DataService, private rest: RestApiService) { }
+
+  async ngOnInit() {
+    try {
+      const data = await this.rest.get(
+        'http://localhost:3030/api/seller/products'
+      );
+      data['success']
+        ? (this.products = data['products'])
+        : this.data.error(data['message']);
+      console.log(this.products);
+    } catch (error) {
+      this.data.error(error['message']);
+    }
   }
 
 }

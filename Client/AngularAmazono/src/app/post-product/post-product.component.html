@@ -22,7 +22,7 @@
           <div class="form-group">
             <label>Category</label>
             <select name="categoryId" [(ngModel)]="product.categoryId" class="custom-select">
-              <option *ngFor="let category of categories" value="category,_id">
+              <option *ngFor="let category of categories" value="{{ category._id }}">
                 {{ category.name }}
               </option>
             </select>
