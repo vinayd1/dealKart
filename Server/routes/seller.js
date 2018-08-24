@@ -74,32 +74,34 @@ router.route('/products')
         })
     });
 
+/**************************Just For Testing********************************/
+/**************************************************************************/
+/**/                                                                    /**/
+/**/    router.get('/faker/test', (req, res, next) => {                 /**/
+/**/        for (i = 0; i < 20; i++) {                                  /**/
+/**/            let product = new Product();                            /**/
+/**/            product.category = "5b26a066a10b1c54ba724e13";          /**/
+/**/            product.owner = "5b269506166b474bae261250";             /**/
+/**/            product.image = faker.image.cats();                     /**/
+/**/            product.title = faker.commerce.productName();           /**/
+/**/            product.description = faker.lorem.words();              /**/
+/**/            product.price = faker.commerce.price();                 /**/
+/**/            let save = product.save();                              /**/
+/**/            save.catch((error) => {                                 /**/ 
+/**/                res.json({                                          /**/
+/**/                    success: false,                                 /**/
+/**/                    message: error.message                          /**/
+/**/                });                                                 /**/
+/**/            });                                                     /**/
+/**/        }                                                           /**/
+/**/                                                                    /**/
+/**/        res.json({                                                  /**/
+/**/            success: true,                                          /**/
+/**/            message: "Successfully added 20 products"               /**/
+/**/        });                                                         /**/
+/**/    });                                                             /**/
+/**/                                                                    /**/
+/**************************************************************************/
+/**************************************************************************/
 
-/******************Just For Testing****************/
-
-router.get('/faker/test', (req, res, next) => {
-    for (i = 0; i < 20; i++) {
-        let product = new Product();
-        product.category = "5b26a066a10b1c54ba724e13";
-        product.owner = "5b269506166b474bae261250";
-        product.image = faker.image.cats();
-        product.title = faker.commerce.productName();
-        product.description = faker.lorem.words();
-        product.price = faker.commerce.price();
-        let save = product.save();
-        save.catch((error) => {
-            res.json({
-                success: false,
-                message: error.message
-            });
-        });
-    }
-
-    res.json({
-        success: true,
-        message: "Successfully added 20 products"
-    });
-});
-
-/*************************************************/
 module.exports = router;
