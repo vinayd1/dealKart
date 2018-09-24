@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
-import { elementClass } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-post-product',
