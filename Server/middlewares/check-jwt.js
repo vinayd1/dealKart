@@ -12,18 +12,14 @@ module.exports = function(req, res, next) {
                     message: 'Failed to authenticate token'
                 });
             } else {
-
                 req.decoded=decoded;
                 next();
-
             }
         });
     } else {
-
         res.status(403).json({
             success: false,
             message: 'No token provided'
         });
-
     }
 }
