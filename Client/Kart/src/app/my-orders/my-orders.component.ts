@@ -23,7 +23,6 @@ export class MyOrdersComponent implements OnInit {
       data['success']
         ? (this.orders = data['orders'])
         : this.data.error(data['message']);
-      console.log(data);
     } catch (error) {
       this.data.error(error['message']);
     }

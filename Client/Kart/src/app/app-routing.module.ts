@@ -15,7 +15,8 @@ import { ProductComponent } from './product/product.component';
 import { SearchComponent } from './search/search.component';
 import { CartComponent } from './cart/cart.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
- 
+import { OrderComponent } from './order/order.component';
+  
 import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
@@ -81,6 +82,11 @@ const routes: Routes = [
   {
     path: 'profile/orders',
     component: MyOrdersComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'profile/orders/:id',
+    component: OrderComponent,
     canActivate: [AuthGuardService]
   },
   {
