@@ -1,12 +1,13 @@
 const router = require('express').Router();
 const async = require('async');
-const stripe = require('stripe')('sk_test_CWwOMSRvx5JCWxCH61ltUtOG');
-
 
 const Category = require('../models/category');
 const Product = require('../models/product');
 const Review = require('../models/review');
 const Order = require('../models/order');
+const config = require('../config');
+
+const stripe = require('stripe')(config.stripe);
 
 const checkJWT = require('../middlewares/check-jwt');
 
