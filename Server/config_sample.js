@@ -11,5 +11,6 @@ module.exports = {
         appId: '<algolia_appId>',
         apiKey: '<algolia_apiKey>',
         indexName: '<indexName>'
-    }
+    },
+    stripe: '<stripe_apiKey>'
 };
