@@ -50,7 +50,7 @@ export class CartComponent implements OnInit {
     });
     this.handler = StripeCheckout.configure({
       key: environment.stripeKey,
-      image: 'assets/img/logo.png',
+      image: 'assets/img/symbol.png',
       locale: 'auto',
       currency: 'inr',
       token: async stripeToken => {

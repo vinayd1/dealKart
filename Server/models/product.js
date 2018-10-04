@@ -37,6 +37,7 @@ ProductSchema
     });
 
 ProductSchema.plugin(deepPopulate);
+
 ProductSchema.plugin(mongooseAlgolia, {
     appId: config.algolia.appId,
     apiKey: config.algolia.apiKey,
