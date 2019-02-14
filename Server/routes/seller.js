@@ -53,7 +53,6 @@ router.route('/products')
     })
     .post([checkJWT, upload.single('productPicture')], (req, res, next) => {
         let product = new Product();
-        console.log("3");
         product.owner = req.decoded.user._id;
         product.category = req.body.categoryId;
         product.title = req.body.title;
